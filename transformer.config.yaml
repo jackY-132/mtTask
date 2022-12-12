@@ -1,0 +1,47 @@
+
+d_model: 512 # 单词嵌入的维度，也是多头注意力、位置前馈网络、编码器和解码器的输入和输出的最后维度
+n_heads: 8  # 多头注意力中使用的头数。
+n_layers: 6 # 编码器和解码器中要堆叠的子层的数量。
+d_k: 64 # K矩阵的维度
+d_v: 64 # v矩阵的维度
+d_ff: 2048 # 隐藏层的维度
+dropout: 0.1 # dropout的概率
+
+save_step: 1000 # 训练后保存模型的步数
+print_step: 100 # 训练时打印输出的步数
+
+# 一些特殊标志的编号
+padding_idx: 0
+bos_idx: 2
+eos_idx: 3
+# 词表的大小
+src_vocab_size: 32000
+tgt_vocab_size: 32000
+batch_size: 32 # batch的大小
+epoch_num: 40 # 迭代次数
+#early_stop: 5
+lr: 3e-4  # 学习率
+warmup_steps: 10000  # warmup最高点的位置
+label_smooth_eps: 0.1
+max_len: 60 # greed decode的最大句子长度
+beam_size: 3 # beam 大小
+
+use_smoothing: False
+use_warmup: False
+
+data_dir: '/tmp/nlp/mtdata'
+train_en_path: '/tmp/nlp/mtdata/80000/train_en.txt'
+train_zh_path: "/tmp/nlp/mtdata/80000/train_cn.txt"
+dev_zh_path: '/tmp/nlp/mtdata/80000/dev_cn.txt'
+dev_en_path: '/tmp/nlp/mtdata/80000/dev_en.txt'
+test_zh_path: '/tmp/nlp/mtdata/80000/test_cn.txt'
+test_en_path: '/tmp/nlp/mtdata/80000/test_en.txt'
+save_path: '/tmp/nlp/save_models/git_save/model.pth'
+log_path: '/tmp/nlp/experiment/train.log'
+output_path: '/tmp/nlp/experiment/output.txt'
+
+use_gpu: False
+gpu_id: ''
+device_id: [0, 1]
+
+device: ""
